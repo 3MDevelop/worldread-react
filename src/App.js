@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -22,7 +22,21 @@ function App() {
     setUserAuth(UserSit)
   }
 
+  const [userInfo, setUserInfo] = useState([])
+  const userInfoLangHandler = (inLang) => {
+    setUserInfo({
+      lang: inLang
+    })
+  }
+
+
+  useEffect(()=>{
+    console.info(userInfo.lang)
+  }, [userInfo])
+
+
   const langHandler = (lang) => {
+    userInfoLangHandler(lang)
     setSiteLang(lang)
   }
   return (

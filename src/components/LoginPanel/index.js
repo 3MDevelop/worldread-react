@@ -1,6 +1,6 @@
-import LoginPSep from './LoginPSep'
+import LoginPSep from '../LoginPSep/LoginPSep'
 import LoginForm from './LoginForm'
-import SignupForm from './SignupForm'
+import SignupForm from '../UserSection/SignupForm'
 
 const LoginPanel = ({ userDataHandler, userAuthHandler }) => {
     const getUserData = () => {

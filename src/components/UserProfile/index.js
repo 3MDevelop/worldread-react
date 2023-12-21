@@ -1,7 +1,7 @@
 import { useState } from "react"
-import ContentItem from './ContentItem'
+/* import ContentItem from '../ContentItem' */
 
-const UserProfile = ({ userData, userDataHandler, userAuthHandler }) => {
+const UserProfile = ({ userToken }) => {
     const [newContent, setNewContent] = useState('')
     const [newLink, setNewLink] = useState('')
 
@@ -24,7 +24,7 @@ const UserProfile = ({ userData, userDataHandler, userAuthHandler }) => {
                 return response.json();
             })
             .then((data) => {
-                userDataHandler(data)
+                /* userDataHandler(data) */
                 document.getElementById('newContent').value = ''
                 document.getElementById('newLink').value = ''
             })
@@ -39,16 +39,16 @@ const UserProfile = ({ userData, userDataHandler, userAuthHandler }) => {
                 <div className="userInfo mr-0 mr-md-3 d-flex flex-column justify-content-between align-items-center" >
                     <div className='d-flex mt-4 position-relative px-4'>
                         <div className="userImage ">
-                            <image src="./img/user.png" height="100%" className="img-fluid" alt="user image" />
+                            <picture src="./img/user.png" height="100%" className="img-fluid" alt="user image" />
                         </div>
                         <div className='fa-solid fa-right-from-bracket sOutIcon text-danger'
                             onClick={() => {
                                 localStorage.clear()
-                                userDataHandler('')
-                                userAuthHandler(false)
+                               /* userDataHandler('')
+                                userAuthHandler(false)*/
                             }} />
                     </div>
-                    <div className="userFullName mt-2"> {userData.userFullName} </div>
+                    <div className="userFullName mt-2">fullName {/* {userData.userFullName} */} </div>
                     <div className="d-flex flex-column justify-content-center align-items-center w-100 mt-auto" >
                         <div className="mb-1 w-100">
                             <input
@@ -83,13 +83,15 @@ const UserProfile = ({ userData, userDataHandler, userAuthHandler }) => {
                     </div>
                 </div>
                 <div className="linkListContainer bg-white flex-md-fill">
-                    {
+
+                list
+                    {/* {
                         userData.contentList.map((val, index) => {
                             return (
                                 <ContentItem key={index} itemKey={val.ContentID} itemHeader={val.ContentName} itemLink={val.ContentLink} userDataHandler={userDataHandler} />
                             )
                         })
-                    }
+                    } */}
                 </div>
             </div>
         </div>

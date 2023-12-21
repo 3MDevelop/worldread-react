@@ -1,20 +1,12 @@
-import { useState,useEffect } from "react"
+import { useState } from "react"
 
-const LoginForm = ({ userDataHandler, getUserData }) => {
+const LoginForm = ({ userTokenHandler }) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
     const showError = (inText) => {
         document.getElementById('massageBox').innerHTML = inText
     }
-
-    useEffect(() => {
-        if (localStorage.getItem('ut')) {
-            getUserData()
-        } else {
-            userDataHandler(undefined)
-        }
-    })
 
     const loadUser = () => {
         fetch("https://api.worldread.net/v1/login/", {
@@ -37,9 +29,8 @@ const LoginForm = ({ userDataHandler, getUserData }) => {
                 if (data.status === "error") {
                     showError(data.message)
                 } else {
-
-                    localStorage.setItem('ut', data.userToken)
-                    getUserData()
+                    console.info(data.userToken)
+                    userTokenHandler(data.userToken)
                 }
             })
             .catch(error => {

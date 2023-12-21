@@ -14,6 +14,14 @@ html {
   margin: 0;
 }
 
+/* Extras */
+
+
+.cookieBox {
+  opacity: 0;
+  animation: fadeInAnimation 0.1s ease-in-out forwards;
+}
+
 /* Nav */
 
 .navDropDown{
@@ -61,6 +69,12 @@ html {
   .BannerContainer {
     background-position: -5% 52%, top left;
   }
+}
+
+/* Footer Section */
+
+.footerSection{
+  font-size: 0.7rem;
 }
 
 /* Book Discription */
@@ -192,3 +206,5 @@ ol li .descr {
   font-size: 0.9rem;
   font-weight: bolder;
 }
+
+

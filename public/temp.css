@@ -46,96 +46,16 @@
     font-size: 0.8rem;
   }
   
-  .sOutIcon {
-    font-size: 1.2rem;
   
-    position: absolute;
-    right: 0;
-  }
   
-  .userImage {
-    width: 120px;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid #63a1ff;
-  }
   
-  .userFullName {
-    font-size: 1.1rem;
-    font-weight: bold;
-  }
   
-  .userInfo {
-    width: 300px;
-    min-width: 200px;
-  }
-  
-  .linkListContainer {
-    height: 300px;
-    padding: 1rem;
-    min-width: 500px;
-    border: rgba(13, 109, 252, 0.1) 2px solid;
-    border-radius: 5px;
-    box-shadow: 0 0 2px 3px rgba(255, 255, 255, 0.5);
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-  
-  @media screen and (max-width: 760px) {
-    .linkListContainer {
-      width: 100%;
-    }
-  }
-  
-  .userSection {
-    position: relative;
-  }
-  
-  .userSection:before {
-    content: " ";
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.1;
-    background-image: url("../img/patern.svg");
-    background-size: 2%;
-  }
-  
-  .verSep {
-    border-left: 2px dotted rgb(170, 170, 170);
-    box-shadow: 0 0 1px 2px rgba(255, 255, 255, 0.5);
-  }
-  
-  .horSep {
-    border-top: 2px dotted rgb(170, 170, 170);
-    box-shadow: 0 0 1px 2px rgba(255, 255, 255, 0.5);
-  }
-  
-  .sepOr {
-    font-size: 0.8rem;
-    font-weight: bold;
-    padding-bottom: 2px;
-    width: 22px;
-    aspect-ratio: 1/1;
-    border: 2px dotted rgb(170, 170, 170);
-    border-radius: 50%;
-  }
   
   .socialIcons {
     font-size: 1.2rem;
   }
   
-  .bg-dark {
-    background-color: black !important;
-  }
   
-  .bg-success {
-    background-color: #009736 !important ;
-  }
   
   .footerSection {
     font-size: 0.7rem;
@@ -184,15 +104,7 @@
     box-shadow: 0 0 2px 1px rgba(212, 212, 212, 0.2);
   }
   
-  .bg-orange {
-    background-color: #ff7400;
-  }
-  .bg-red {
-    background-color: #ff0000;
-  }
-  .bg-yellow {
-    background-color: #ffc100;
-  }
+  
   
   .formAlertBox {
     text-align: center;

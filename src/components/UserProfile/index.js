@@ -1,9 +1,15 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 /* import ContentItem from '../ContentItem' */
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const UserProfile = ({ userToken }) => {
+import ContentItem from '../ContentItem';
+
+const UserProfile = ({ userToken, userData, userDataHandler }) => {
     const [newContent, setNewContent] = useState('')
     const [newLink, setNewLink] = useState('')
+    useEffect(()=>{
+        console.info(userData)
+    })
 
     const addContent = () => {
         fetch("https://api.worldread.net/v1/content/", {
@@ -12,7 +18,7 @@ const UserProfile = ({ userToken }) => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                userToken: localStorage.getItem('ut'),
+                userToken: userToken,
                 contHeader: newContent,
                 contLink: newLink
             }),
@@ -35,18 +41,19 @@ const UserProfile = ({ userToken }) => {
 
     return (
         <div className="container-fluid p-0 py-2 d-flex justify-content-center">
-            <div className="col-12 d-flex flex-column flex-md-row justify-content-center align-items-md-stretch align-items-center">
+            <div className="px-3 col-12 d-flex flex-column flex-md-row justify-content-center align-items-md-stretch align-items-center">
                 <div className="userInfo mr-0 mr-md-3 d-flex flex-column justify-content-between align-items-center" >
                     <div className='d-flex mt-4 position-relative px-4'>
                         <div className="userImage ">
                             <picture src="./img/user.png" height="100%" className="img-fluid" alt="user image" />
                         </div>
-                        <div className='fa-solid fa-right-from-bracket sOutIcon text-danger'
-                            onClick={() => {
-                                localStorage.clear()
-                               /* userDataHandler('')
-                                userAuthHandler(false)*/
-                            }} />
+                        <div onClick={() => {
+                            console.info('sign out')
+                            /* userDataHandler('')
+                             userAuthHandler(false)*/
+                        }}>
+                            <FontAwesomeIcon icon="fas fa-right-from-bracket" className="sOutIcon text-danger" />
+                        </div>
                     </div>
                     <div className="userFullName mt-2">fullName {/* {userData.userFullName} */} </div>
                     <div className="d-flex flex-column justify-content-center align-items-center w-100 mt-auto" >
@@ -82,9 +89,8 @@ const UserProfile = ({ userToken }) => {
                         </div>
                     </div>
                 </div>
-                <div className="linkListContainer bg-white flex-md-fill">
-
-                list
+                <div className="linkListContainer bg-white flex-md-fill ms-3">
+                List
                     {/* {
                         userData.contentList.map((val, index) => {
                             return (

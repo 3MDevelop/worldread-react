@@ -19,9 +19,13 @@ const NavSection = (
         userAuthHandler,
         showCookieBox,
         setShowCookieBox,
-        cookieHandler
+        cookieHandler,
+        userData
     }) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    
+
     const toggle = () => setDropdownOpen((prevState) => !prevState);
     return (
         <>
@@ -40,7 +44,6 @@ const NavSection = (
                             <div className={"mx-1 px-1 text-dark lngBtn text-center " + (siteLang === 'ar' ? "bg-white" : null)} onClick={() => { siteLangHandler('ar') }} >Ar</div>
                             <div className={"mx-1 px-1 text-dark lngBtn text-center " + (siteLang === 'en' ? "bg-white" : null)} onClick={() => { siteLangHandler('en') }} >En</div>
                         </div>
-
                         <div className="text-white">
                             <Dropdown isOpen={dropdownOpen} toggle={toggle} direction="down" className="text-right navDropDown">
                                 <DropdownToggle caret className="pl-0" style={{ paddingLeft: "0.75rem", borderRadius: "7px 7px 0 0" }}>
@@ -48,13 +51,10 @@ const NavSection = (
                                 </DropdownToggle>
                                 <DropdownMenu className='text-center mt-1' end>
                                     {
-                                        (userToken === "") ?
-                                            <div /*onClick={() => userTokenHandler('newToken')}*/>
-                                                <LoginForm userTokenHandler={userTokenHandler} />
-                                            </div>
-                                            : <div>
-                                                <UserProfile />
-                                            </div>
+                                        (userAuth) ?
+                                            <LoginForm userTokenHandler={userTokenHandler} userAuthHandler={userAuthHandler} />
+                                            :
+                                            <UserProfile userData={userData} />
                                     }
                                 </DropdownMenu>
 
@@ -69,7 +69,7 @@ const NavSection = (
                     siteLang={siteLang}
                     cookieHandler={cookieHandler}
                     setShowCookieBox={setShowCookieBox}
-                    setDropdownOpen = {setDropdownOpen}
+                    setDropdownOpen={setDropdownOpen}
                 />
             ) : null}
         </>

@@ -2,6 +2,24 @@
   text-align: center;
 }
 
+.bg-dark {
+  background-color: black !important;
+}
+
+.bg-success {
+  background-color: #009736 !important ;
+}
+
+.bg-orange {
+  background-color: #ff7400;
+}
+.bg-red {
+  background-color: #ff0000;
+}
+.bg-yellow {
+  background-color: #ffc100;
+}
+
 @font-face {
   font-family: "danger";
   src: url("../public/fonts/Warpaint.ttf");
@@ -207,4 +225,48 @@ ol li .descr {
   font-weight: bolder;
 }
 
+
+/* User Profile */
+
+.userInfo {
+  width: 300px;
+  min-width: 200px;
+}
+
+.userImage {
+  width: 120px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #63a1ff;
+}
+
+.sOutIcon {
+  font-size: 1.2rem;
+
+  position: absolute;
+  right: 0;
+}
+
+.userFullName {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.linkListContainer {
+  height: 300px;
+  padding: 1rem;
+  min-width: 500px;
+  border: rgba(13, 109, 252, 0.1) 2px solid;
+  border-radius: 5px;
+  box-shadow: 0 0 2px 3px rgba(255, 255, 255, 0.5);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 760px) {
+  .linkListContainer {
+    width: 100%;
+  }
+}
 

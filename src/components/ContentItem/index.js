@@ -80,7 +80,6 @@ const ContentItem = ({ itemHeader, itemLink, itemKey, userDataHandler }) => {
                             return response.json();
                         })
                         .then((data) => {
-                            console.info(data)
                             userDataHandler(data)
                         })
                         .catch(error => {

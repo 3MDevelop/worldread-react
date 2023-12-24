@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const LoginForm = ({ userTokenHandler }) => {
+const LoginForm = ({ /* userTokenHandler, */ userAuthHandler }) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
@@ -29,8 +29,9 @@ const LoginForm = ({ userTokenHandler }) => {
                 if (data.status === "error") {
                     showError(data.message)
                 } else {
-                    console.info(data.userToken)
-                    userTokenHandler(data.userToken)
+                    userAuthHandler(true)
+                    /* console.info(data.userToken)
+                    userTokenHandler(data.userToken) */
                 }
             })
             .catch(error => {

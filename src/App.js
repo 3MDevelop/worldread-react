@@ -7,6 +7,7 @@ import NavSection from './components/NavSection';
 import Banner from './components/Banner';
 import BookDis from './components/BookDis';
 import Footer from './components/Footer';
+import Competition from './components/Competition'
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -37,6 +38,7 @@ function App() {
       const trimmedCookie = cookie.trim();
       if (trimmedCookie.startsWith('userToken=')) {
         document.cookie = `userToken=${userToken}; expires=Thu, 01 Jan 2030 00:00:00 UTC; path=/`;
+        /* userAuthHandler(true) */
       }
     });
     setUserToken(nToken);
@@ -60,7 +62,6 @@ function App() {
   }
 
   useEffect(() => {
-    console.info('first')
     const cookies = document.cookie.split(';');
     let siteLangValue;
     let userTokenValue;
@@ -80,8 +81,7 @@ function App() {
       }, 1500);
     } else {
       siteLangHandler(siteLangValue)
-      if (userTokenValue !== undefined) {
-
+      if (userTokenValue !== '') {
         fetch("https://api.worldread.net/v1/list/", {
           method: "POST",
           headers: {
@@ -109,7 +109,7 @@ function App() {
           });
       }
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
 
@@ -119,7 +119,7 @@ function App() {
         siteLang={siteLang}
         siteLangHandler={siteLangHandler}
         userToken={userToken}
-        userTokenHandler={userDataHandler}
+        userTokenHandler={userTokenHandler}
         userAuth={userAuth}
         userAuthHandler={userAuthHandler}
         showCookieBox={showCookieBox}
@@ -127,9 +127,10 @@ function App() {
         cookieHandler={cookieHandler}
         userData={userData}
         setUserData={setUserData}
-      /> 
+      />
       <Banner siteLang={siteLang} />
       <BookDis siteLang={siteLang} userAuth={siteLang} />
+      <Competition siteLang={siteLang} />
       <Footer />
     </div>
   );

@@ -62,10 +62,10 @@ function App() {
   }
 
   useEffect(() => {
-    const cookies = document.cookie.split(';');
+    console.info('first')
     let siteLangValue;
     let userTokenValue;
-    cookies.forEach(cookie => {
+    document.cookie.split(';').forEach(cookie => {
       const trimmedCookie = cookie.trim();
       if (trimmedCookie.startsWith('siteLang=')) {
         siteLangValue = trimmedCookie.substring('siteLang='.length);
@@ -73,7 +73,9 @@ function App() {
         userTokenValue = trimmedCookie.substring('userToken='.length);
       }
     });
-    if (siteLangValue === undefined) {
+    console.info('siteLangValue',siteLangValue)
+    console.info('userTokenValue',userTokenValue)
+     if (siteLangValue === undefined) {
       siteLangHandler('ar')
       const showCookieBoxTimeout = setTimeout(() => {
         cookieBoxHandler(true);

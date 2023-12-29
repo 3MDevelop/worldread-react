@@ -2,14 +2,11 @@ import { useEffect, useState } from "react"
 /* import ContentItem from '../ContentItem' */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import ContentItem from '../ContentItem';
+/* import ContentItem from '../ContentItem'; */
 
 const UserProfile = ({ userToken, userData, userDataHandler }) => {
     const [newContent, setNewContent] = useState('')
     const [newLink, setNewLink] = useState('')
-    useEffect(()=>{
-        console.info(userData)
-    })
 
     const addContent = () => {
         fetch("https://api.worldread.net/v1/content/", {

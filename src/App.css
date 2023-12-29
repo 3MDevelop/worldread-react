@@ -270,3 +270,26 @@ ol li .descr {
   }
 }
 
+/* ContentItem */
+
+.contentItem {
+  width: 350px;
+  height: 50px;
+  margin-bottom: 0.7rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 2px dashed rgba(73, 73, 73, 0.2);
+}
+
+.contentItemIcon {
+  padding: 0.4rem 0.5rem 0.5rem 0.5rem;
+  height: 100%;
+  aspect-ratio: 1/1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 55%;
+}
+
+.contentItenTxt {
+  font-size: 0.9rem;
+  font-weight: bold;
+}

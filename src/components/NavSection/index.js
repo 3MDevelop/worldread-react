@@ -24,8 +24,6 @@ const NavSection = (
     }) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
-    
-
     const toggle = () => setDropdownOpen((prevState) => !prevState);
     return (
         <>
@@ -69,7 +67,6 @@ const NavSection = (
                     siteLang={siteLang}
                     cookieHandler={cookieHandler}
                     setShowCookieBox={setShowCookieBox}
-                    setDropdownOpen={setDropdownOpen}
                 />
             ) : null}
         </>

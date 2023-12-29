@@ -1,5 +1,5 @@
 
-const CookieBox = ({ siteLang, cookieHandler, setShowCookieBox,setDropdownOpen }) => {
+const CookieBox = ({ siteLang, cookieHandler, setShowCookieBox }) => {
     const boxHeaders = {
         ar: 'هذا الموقع يستخدم الكوكيز',
         en: 'This website uses cookies',
@@ -25,13 +25,11 @@ const CookieBox = ({ siteLang, cookieHandler, setShowCookieBox,setDropdownOpen }
     const denBtnLable = denBtnLables[siteLang] || denBtnLables.ar;
 
     const denyFunc = () => {
-        setShowCookieBox(false)
-        setDropdownOpen(true)
+        setShowCookieBox(false)  
     }
 
     const acceptFunc = () => {
         cookieHandler()
-        setShowCookieBox(false)
     };
 
     return (
